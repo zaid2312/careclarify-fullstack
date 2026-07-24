@@ -7,8 +7,8 @@ load_dotenv()
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
-from .ai_bill_analyzer import analyze_bill_file
-from .schemas import BillAnalysis
+from ai_bill_analyzer import analyze_bill_file
+from schemas import BillAnalysis
 
 app = FastAPI(
     title="CareClarify API",
