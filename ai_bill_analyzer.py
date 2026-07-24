@@ -6,7 +6,7 @@ import pdfplumber
 from anthropic import Anthropic
 from fastapi import HTTPException, UploadFile
 
-from .schemas import BillAnalysis
+from schemas import BillAnalysis
 
 client = Anthropic()  # reads ANTHROPIC_API_KEY from env
 

@@ -6,9 +6,10 @@ load_dotenv()
 
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
-from .ai_bill_analyzer import analyze_bill_file
-from .schemas import BillAnalysis
+from ai_bill_analyzer import analyze_bill_file
+from schemas import BillAnalysis
 
 app = FastAPI(
     title="CareClarify API",
@@ -44,3 +45,12 @@ async def analyze_bill(
     Alternatively (or in addition), pass `text` as pasted bill content.
     """
     return await analyze_bill_file(file, text)
+
+
+# Serve the frontend (index.html, app.js, styles.css, logo.png) from the /app
+# directory. Mounted last so API routes above take precedence.
+app.mount(
+    "/",
+    StaticFiles(directory=os.path.dirname(os.path.abspath(__file__)), html=True),
+    name="static",
+)
