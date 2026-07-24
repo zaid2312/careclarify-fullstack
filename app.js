@@ -2,7 +2,7 @@
 
 // Backend API base URL. Change this if your FastAPI server runs elsewhere
 // (e.g. your deployed backend URL in production).
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = "https://careclarify-fullstack-production.up.railway.app";
 
 // 1. Data Models & Databases
 
